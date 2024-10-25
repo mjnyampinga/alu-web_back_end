@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
-""" 14. Top students
+""" Write a Python function that returns all students sorted by average score
 """
 
 
 def top_students(mongo_collection):
-    """ top_students.
+    """ mongo_collection will be the pymongo collection object
+        - The top must be ordered
+        - The average score must be part of each item
+          returns with key = averageScore
     """
-    return mongo_collection.aggregate([
+    top_st = mongo_collection.aggregate([
         {
             "$project": {
                 "name": "$name",
@@ -15,3 +18,5 @@ def top_students(mongo_collection):
         },
         {"$sort": {"averageScore": -1}}
     ])
+
+    return top_st

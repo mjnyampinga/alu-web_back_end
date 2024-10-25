@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
-""" 10. Change school topics
-"""
+"""pymongo"""
 
 
 def update_topics(mongo_collection, name, topics):
-    """ update_topics.
-    """
-    query = {"name": name}
-    new_values = {"$set": {"topics": topics}}
-    mongo_collection.update_many(query, new_values)
+    """changes all topics of a document based on the name"""
+    return mongo_collection.update_many({"name": name}, {"$set": {"topics": topics}})

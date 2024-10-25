@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
-""" 9. Insert a document in Python
+"""
+Module to insert a new document in a collection.
 """
 
-
 def insert_school(mongo_collection, **kwargs):
-    """ insert_school.
     """
-    new_doc = mongo_collection.insert_one(kwargs)
-    return new_doc.inserted_id
+    Insert a new document in a collection based on kwargs.
+    
+    Args:
+        mongo_collection: pymongo collection object.
+        **kwargs: Key-value pairs to be inserted as a document.
+    
+    Returns:
+        The new _id of the inserted document.
+    """
+    result = mongo_collection.insert_one(kwargs)
+    return result.inserted_id
