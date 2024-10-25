@@ -1,2 +1,3 @@
-// show all schools
-db.school.find()
+// list all documents in the collection school
+
+db.school.find();
